@@ -146,6 +146,11 @@ For multiple targets, see `enzformer2 act benchmark --help`.
 - The accompanying Zenodo deposit supplies paper-run corpora, trained Act
   adapters, predictions and source tables. ESM-C weights come from its provider.
 
+## References
+
+For the ESM-C 600M backbone citation and pretrained weights, see the
+[shared references](../README.md#references).
+
 ## License
 
 Code is distributed under the [MIT license](LICENSE); third-party models and

@@ -3,7 +3,8 @@
 EnzFormer2 provides two complementary models for enzyme engineering in one
 repository: **EnzFormer2-Act** for activity-focused mutation ranking and
 **EnzFormer2-Temp** for predicted thermostability changes. Both use the pretrained
-ESM-C 600M protein language model, with separate adaptation and scoring methods.
+[ESM-C 600M](https://huggingface.co/biohub/esmc-600m-2024-12) protein language model,
+with separate adaptation and scoring methods.
 
 | Model | Workflow | Score | Start here |
 | --- | --- | --- | --- |
@@ -68,6 +69,19 @@ contains seeds 42, 43 and 44 and averages decoded ΔΔG predictions. See the
   [Temp data and models](EnzFormer2-Temp/README.md#data-and-models)
   and [training and evaluation](EnzFormer2-Temp/README.md#training-and-evaluation).
 
+## References
+
+Both models use the pretrained ESM-C 600M backbone. Please cite the upstream
+ESM-C work when using EnzFormer2:
+
+- Candido, S., Hayes, T., Derry, A., et al. (2026).
+  [Language Modeling Materializes a World Model of Protein Biology](https://doi.org/10.64898/2026.06.03.729735).
+  *bioRxiv* (preprint).
+- ESM Team (2024).
+  [ESM Cambrian: Revealing the mysteries of proteins with unsupervised learning](https://www.evolutionaryscale.ai/blog/esm-cambrian).
+  EvolutionaryScale.
+- ESM-C 600M pretrained weights:
+  [`biohub/esmc-600m-2024-12`](https://huggingface.co/biohub/esmc-600m-2024-12).
 
 ## License
 

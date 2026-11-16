@@ -79,6 +79,11 @@ The pretrained ensemble is included in `checkpoints/enzformer2_temp/`.
 Training data, paper predictions and source tables are supplied in the
 accompanying Zenodo archive.
 
+## References
+
+For the ESM-C 600M backbone citation and pretrained weights, see the
+[shared references](../README.md#references).
+
 ## License
 
 Code is distributed under the [MIT license](LICENSE); third-party models and
