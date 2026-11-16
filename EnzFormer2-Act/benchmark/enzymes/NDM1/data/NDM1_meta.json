@@ -1,0 +1,55 @@
+{
+  "dataset": "NDM1",
+  "primary_truth_csv": "benchmark/enzymes/NDM1/data/NDM1_CTX32.csv",
+  "auxiliary_truth_csvs": [],
+  "wt": {
+    "source": "benchmark/enzymes/NDM1/raw_sources/wt/assay_wtNDM1.fasta",
+    "seq_id": "NDM1",
+    "length": 270,
+    "sha256": "5c109ca5edc81ece0dd801de5203f71c79d6c3bab26ce67dfe80d8c3b900bad3",
+    "selection_reason": "assay GenBank-translation of Suppl Data 7 (270 aa, byte-identical to UniProt C7C422)"
+  },
+  "source_files": [
+    {
+      "path": "benchmark/enzymes/NDM1/raw_sources/wt/assay_wtNDM1.fasta",
+      "sha256": "5c109ca5edc81ece0dd801de5203f71c79d6c3bab26ce67dfe80d8c3b900bad3"
+    },
+    {
+      "path": "benchmark/enzymes/NDM1/processed_sources/SD3_NDM_fitness_scores.csv",
+      "sha256": "e95cc85eb0206f6544dc76934e2eac4e87a521a1e4b00c0da3c64bde9a22f1cd"
+    }
+  ],
+  "score": {
+    "fitness_column": "<condition>_score (per CSV)",
+    "higher_is_better": true,
+    "positive_threshold": 0.0,
+    "positive_threshold_review_required": true
+  },
+  "filters": {
+    "conditions": {
+      "CTX32": {
+        "raw_rows": 5554,
+        "truth_rows": 5041,
+        "dropped_synonymous": 244,
+        "dropped_stop": 268,
+        "dropped_noncanonical": 1,
+        "dropped_nan_fitness": 0,
+        "dropped_wt_mismatch": 0,
+        "dropped_hgvs_unparsed": 0,
+        "dropped_position_oob": 0,
+        "collapsed_duplicate_rows": 0
+      }
+    }
+  },
+  "conditions": [
+    {
+      "label": "32.0_CTX",
+      "normalized": "CTX32",
+      "csv": "benchmark/enzymes/NDM1/data/NDM1_CTX32.csv",
+      "primary": true
+    }
+  ],
+  "notes": [
+    "NDM-1 WT copied from assay GenBank-translation (length 270)."
+  ]
+}

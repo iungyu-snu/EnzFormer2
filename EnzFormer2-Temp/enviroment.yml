@@ -1,0 +1,10 @@
+# Run from EnzFormer2-Temp/; the supplied checkpoints use CUDA and BF16.
+name: enzformer2_temp
+channels:
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - "-e ."
+      - pyarrow

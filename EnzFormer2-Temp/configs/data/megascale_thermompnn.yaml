@@ -1,0 +1,83 @@
+# MegaScale dataset3_single -- ThermoMPNN/SPURS-style primary split.
+#
+# Key source facts:
+#   - HF top-level splits are: train / val / test (NOT 'validation').
+#   - Each unique mutation appears ~7 times in the HF data (primary + s669 +
+#     5 cv folds). The `split_name` column carries the per-row partition tag.
+#     We deduplicate to the *primary* assignment by filtering split_name to
+#     {"train","val","test"} per HF split. Cross-validation folds are ignored.
+#   - mut_type strings look like "E1Q" (1-letter wt + 1-indexed position +
+#     1-letter mut). No separate position column.
+  #   - `aa_seq` is the mutant protein sequence used for prediction.
+  #     `aa_seq_full` adds SAGG linker padding from the assay construct; we use
+  #     `aa_seq` so that mutation positions match `mut_type`, then revert the
+  #     single-point mutation to recover wt_sequence.
+  #   - Source `ddG_ML` is ML-derived ΔΔG in kcal/mol with positive values
+  #     indicating stabilizing mutations in this dataset. We flip the sign during
+  #     normalization so the processed `ddg` column is positive = destabilizing.
+
+dataset:
+  path: "RosettaCommons/MegaScale"
+  name: "dataset3_single"
+  data_dir: "dataset3_single"
+  cache_dir: "data/cache/hf"
+
+schema:
+  # HF top-level split key -> our canonical name.
+  split_names:
+    train: "train"
+    validation: "val"
+    test: "test"
+  # The dataset duplicates each mutation across cv folds. Keep only rows whose
+  # `split_name` matches the primary assignment for that HF split.
+  split_name_col: "split_name"
+  primary_split_name_per_hf_split:
+    train: "train"
+    validation: "val"
+    test: "test"
+
+  protein_id_col: "WT_name"
+  sequence_col: "aa_seq"
+  full_sequence_col: "aa_seq_full"   # bookkeeping only; not used for mutation indexing
+  # IMPORTANT: in MegaScale dataset3_single, `aa_seq` is the **mutant** protein
+  # (already carrying the mutation), not the wild-type. The normalizer reverts
+  # the single-point mutation to recover wt_sequence. Set this flag accordingly.
+  sequence_is_mutant: true
+  mutation_col: "mut_type"
+  position_col: null                 # parse from mut_type
+  wt_aa_col: null                    # parse from mut_type
+  mut_aa_col: null                   # parse from mut_type
+  ddg_col: "ddG_ML"
+  stabilizing_flag_col: "Stabilizing_mut"   # informational; recomputed from ddg
+
+  # Sign convention used by `ddg_col` *in the source data*.
+  #
+  # MegaScale's ddG_ML follows the Rosetta-legacy convention: positive ddG_ML
+  # means stabilizing (mutant is more stable than WT). Verified by checking
+  # ddG_ML against the dataset's own `Stabilizing_mut` flag:
+  #
+  #   Stabilizing_mut=True  -> ddG_ML range [+1.00, +2.42], mean +1.41
+  #   Stabilizing_mut=False -> ddG_ML range [-4.58, +0.25], mean -0.79
+  #
+  # We flip the sign during normalization so that the on-disk `ddg` column
+  # follows the canonical ThermoMPNN/SPURS convention (positive = destabilizing).
+  ddg_sign_convention: "rosetta_legacy_positive_is_stabilizing"
+
+labels:
+  # Applied to ddg AFTER sign normalization (positive = destabilizing).
+  stabilizing_threshold: -0.5    # ddG <= -0.5 -> stabilizing
+  destabilizing_threshold: 0.5   # ddG >= +0.5 -> destabilizing
+  # Neutral rows are excluded from the binary stabilizing/destabilizing setup.
+  # `keep_in_predictions` lets us still emit them in eval CSVs for analysis.
+  neutral_policy_for_binary_training: "drop"
+  neutral_policy_keep_in_predictions: true
+
+output:
+  processed_dir: "data/processed/megascale_thermompnn"
+  filenames:
+    train: "train.parquet"
+    validation: "validation.parquet"
+    test: "test.parquet"
+  summary_filename: "summary.json"
+  schema_used_filename: "schema_used.yaml"
+  errors_filename: "errors.csv"

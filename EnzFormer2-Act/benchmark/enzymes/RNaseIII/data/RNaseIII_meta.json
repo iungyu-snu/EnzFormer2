@@ -1,0 +1,58 @@
+{
+  "dataset": "RNaseIII",
+  "primary_truth_csv": "benchmark/enzymes/RNaseIII/data/RNaseIII_fitness.csv",
+  "auxiliary_truth_csvs": [],
+  "wt": {
+    "source": "benchmark/enzymes/RNaseIII/raw_sources/wt/uniprot_P0A7Y0.fasta",
+    "seq_id": "RNaseIII",
+    "length": 226,
+    "sha256": "36a166b30d94444ae8103d6739e563b7905e3da3b4c5d91e3c4811410d35f130",
+    "selection_reason": "UniProt P0A7Y0 (E. coli RNase III)."
+  },
+  "source_files": [
+    {
+      "path": "benchmark/enzymes/RNaseIII/raw_sources/wt/uniprot_P0A7Y0.fasta",
+      "sha256": "36a166b30d94444ae8103d6739e563b7905e3da3b4c5d91e3c4811410d35f130"
+    },
+    {
+      "path": "benchmark/enzymes/RNaseIII/processed_sources/supplementary_data/Supplementary Data S1.xlsx",
+      "sha256": "e63f7eb071f4a126400a767bbc14a7aec0b68021aaa4fef0f4b37483c1cdc399"
+    }
+  ],
+  "score": {
+    "fitness_column": "Fitness (weighted mean)",
+    "higher_is_better": true,
+    "positive_threshold": 0.0,
+    "positive_threshold_review_required": true
+  },
+  "filters": {
+    "primary": {
+      "raw_rows": 13848,
+      "truth_rows": 4271,
+      "dropped_synonymous": 609,
+      "dropped_stop": 611,
+      "dropped_noncanonical": 0,
+      "dropped_nan_fitness": 0,
+      "dropped_wt_mismatch": 0,
+      "dropped_hgvs_unparsed": 0,
+      "dropped_position_oob": 0,
+      "collapsed_duplicate_rows": 8357,
+      "matrix_wt_label_disagreed_with_fasta": 0
+    }
+  },
+  "skipped_auxiliary_sources": [
+    "Supplementary Data S2.xlsx",
+    "Supplementary Data S3.xlsx",
+    "Supplementary Data S4.csv",
+    "Supplementary Data S5.csv",
+    "Supplementary Data S6.csv",
+    "Supplementary Data S7.csv",
+    "Supplementary Data S8.csv",
+    "Supplementary Data S9.csv",
+    "Supplementary Data S10.xlsx"
+  ],
+  "notes": [
+    "Primary fitness from S1.xlsx sheet 'Fitness (weighted mean)'. Codon-level rows collapsed to protein mutations by median.",
+    "Auxiliary supplementary tables S2-S10 are NOT auto-converted in this build; phenotype labels there are not unambiguously machine-readable."
+  ]
+}

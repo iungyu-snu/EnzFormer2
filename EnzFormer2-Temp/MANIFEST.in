@@ -1,0 +1,23 @@
+include enviroment.yml
+include LICENSE
+recursive-include configs *.yaml *.json
+recursive-include scripts *.py *.sh
+prune new_prior
+prune legacy
+prune trash
+prune artifacts
+prune data
+prune third_party
+prune build
+prune dist
+prune .pytest_cache
+prune .ruff_cache
+recursive-exclude configs *.local.yaml
+prune configs/paper/checkpoint_bundles
+global-exclude *.zip *.tar.gz *.py[cod] *.pt *.ckpt *.safetensors *.bin
+global-exclude .DS_Store
+
+# Complete trained bundles are included in source distributions.
+recursive-include checkpoints *.yaml *.json *.pt
+prune envs
+prune experimental_enzymes

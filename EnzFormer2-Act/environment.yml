@@ -1,0 +1,11 @@
+# Linux x86_64 with an NVIDIA GPU; run from EnzFormer2-Act/.
+name: enzformer2_act
+channels:
+  - defaults
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+      - "torch @ https://download.pytorch.org/whl/cu121/torch-2.5.1%2Bcu121-cp312-cp312-linux_x86_64.whl"
+      - "torchvision @ https://download.pytorch.org/whl/cu121/torchvision-0.20.1%2Bcu121-cp312-cp312-linux_x86_64.whl"
+      - "-e ."

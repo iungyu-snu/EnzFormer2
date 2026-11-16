@@ -1,0 +1,81 @@
+{
+  "dataset": "CYP2C9",
+  "primary_truth_csv": "benchmark/enzymes/CYP2C9/data/CYP2C9_activity.csv",
+  "auxiliary_truth_csvs": [],
+  "wt": {
+    "source": "benchmark/enzymes/CYP2C9/raw_sources/wt/uniprot_P11712.fasta",
+    "seq_id": "CYP2C9",
+    "length": 490,
+    "sha256": "56e8ae54136c5e198d13ee0705a6dfb7f5f496e50f58de82b2aafdc3a2487577",
+    "selection_reason": "UniProt P11712 (cross-checked vs MaveDB construct DNA)."
+  },
+  "source_files": [
+    {
+      "path": "benchmark/enzymes/CYP2C9/raw_sources/wt/uniprot_P11712.fasta",
+      "sha256": "56e8ae54136c5e198d13ee0705a6dfb7f5f496e50f58de82b2aafdc3a2487577"
+    },
+    {
+      "path": "benchmark/enzymes/CYP2C9/raw_sources/raw/mavedb_00000095-a-1_scores.csv",
+      "sha256": "5eadb2da3afb6ab8eb820baad71070707c4d1dcf6ea441ab8e19d85193a5655e"
+    },
+    {
+      "path": "benchmark/enzymes/CYP2C9/raw_sources/wt/assay_target_sequence_from_mavedb.dna.fasta",
+      "sha256": "68cecf3af2fcb4c9f4d6d993aa958175c14c19df72bbb4f4a41f18f2cec15ce4"
+    }
+  ],
+  "score": {
+    "fitness_column": "score",
+    "higher_is_better": true,
+    "positive_threshold": 0.0,
+    "positive_threshold_review_required": true
+  },
+  "filters": {
+    "primary": {
+      "raw_rows": 6524,
+      "truth_rows": 6142,
+      "dropped_synonymous": 250,
+      "dropped_stop": 131,
+      "dropped_noncanonical": 0,
+      "dropped_nan_fitness": 0,
+      "dropped_wt_mismatch": 0,
+      "dropped_hgvs_unparsed": 1,
+      "dropped_position_oob": 0,
+      "collapsed_duplicate_rows": 0
+    },
+    "extra_unparsed_hgvs": 1
+  },
+  "mavedb_dna_cross_check": {
+    "mavedb_dna_path": "benchmark/enzymes/CYP2C9/raw_sources/wt/assay_target_sequence_from_mavedb.dna.fasta",
+    "translation_attempts": [
+      {
+        "frame": 0,
+        "length": 490,
+        "hgvs_checked": 6523,
+        "hgvs_agree": 6523,
+        "agree_rate": 1.0
+      },
+      {
+        "frame": 2,
+        "length": 26,
+        "hgvs_checked": 298,
+        "hgvs_agree": 40,
+        "agree_rate": 0.1342281879194631
+      },
+      {
+        "frame": 1,
+        "length": 16,
+        "hgvs_checked": 162,
+        "hgvs_agree": 0,
+        "agree_rate": 0.0
+      }
+    ],
+    "chosen_frame_for_check": 0,
+    "translated_length": 490,
+    "wt_fasta_length": 490,
+    "mavedb_matches_wt": true
+  },
+  "notes": [
+    "Activity score set urn:mavedb:00000095-a-1 is the selected benchmark.",
+    "WT = UniProt P11712; MaveDB construct DNA is cross-checked."
+  ]
+}

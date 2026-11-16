@@ -1,0 +1,15 @@
+{
+  "enabled": true,
+  "source": "base_esmc_frozen",
+  "mode": "wt_context",
+  "transform": "train_zscore_clip5",
+  "fusion": "residual_prior",
+  "feature_dropout": 0.05,
+  "residual_gamma_init": 0.2,
+  "mean": [
+    -4.108493804931641
+  ],
+  "std": [
+    3.4065120220184326
+  ]
+}

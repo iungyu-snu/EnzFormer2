@@ -1,0 +1,48 @@
+{
+  "dataset": "PjDHFR",
+  "primary_truth_csv": "benchmark/enzymes/PjDHFR/data/PjDHFR_MTX_IC75.csv",
+  "auxiliary_truth_csvs": [],
+  "wt": {
+    "source": "benchmark/enzymes/PjDHFR/raw_sources/wt/uniprot_A0EPZ9.fasta",
+    "seq_id": "PjDHFR",
+    "length": 206,
+    "sha256": "e4c357174ea22c8ac5823aaf85e8380ce9a4e749ba2571ef11bd2135d582b13b",
+    "selection_reason": "UniProt A0EPZ9 (full-length protein reference)"
+  },
+  "source_files": [
+    {
+      "path": "benchmark/enzymes/PjDHFR/raw_sources/wt/uniprot_A0EPZ9.fasta",
+      "sha256": "e4c357174ea22c8ac5823aaf85e8380ce9a4e749ba2571ef11bd2135d582b13b"
+    },
+    {
+      "path": "benchmark/enzymes/PjDHFR/raw_sources/raw/PjDHFR_S2_MTX_IC75.csv",
+      "sha256": "282b928072fc2abaff83c3988958db11c9c195df675440367c06f97ce049d274"
+    }
+  ],
+  "score": {
+    "fitness_column": "median_CoS (median_FC fallback per condition)",
+    "higher_is_better": true,
+    "positive_threshold": 0.0,
+    "positive_threshold_review_required": true
+  },
+  "filters": {
+    "MTX_IC75": {
+      "raw_rows": 8886,
+      "truth_rows": 3868,
+      "dropped_synonymous": 483,
+      "dropped_stop": 393,
+      "dropped_noncanonical": 0,
+      "dropped_nan_fitness": 0,
+      "dropped_wt_mismatch": 0,
+      "dropped_hgvs_unparsed": 0,
+      "dropped_position_oob": 0,
+      "collapsed_duplicate_rows": 4142,
+      "fitness_column": "median_CoS"
+    }
+  },
+  "notes": [
+    "PjDHFR WT = UniProt A0EPZ9. Supplement aa_seq is treated as fragment context only; per-row aa_WT validated against UniProt.",
+    "MTX IC75 is the selected benchmark condition.",
+    "Codon-level rows are collapsed to protein-level mutations by median of fitness (median_CoS preferred; median_FC fallback)."
+  ]
+}

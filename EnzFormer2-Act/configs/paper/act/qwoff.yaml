@@ -1,0 +1,47 @@
+# EnzFormer2-Act qwoff: uniform sequence weighting.
+# The paper corpus and checkpoint are distributed separately from this Git tree.
+data:
+  manifest_path: ../../../data/paper_act/train_manifest.tsv
+  sequence_root: ../../../data/paper_act/single_fasta
+  asset_status: separate_archive
+  weight_mode: uniform
+
+model:
+  backbone_model_name: esmc_600m
+  freeze_backbone: true
+  lora_rank: 32
+  lora_alpha: 32
+  lora_dropout: 0.05
+  lora_target_modules: [layernorm_qkv, out_proj]
+
+masking:
+  targets_per_sequence: 4
+  context_mask_policy: radius_plus_random
+  context_mask_radius: 0
+  extra_random_mask_rate: 0.05
+  share_context_across_targets: true
+
+loss:
+  sample_weight_normalization: token_mean
+
+runtime:
+  batch_size: 16
+  grad_accum_steps: 1
+  num_workers: 0
+  pin_memory: false
+  persistent_workers: false
+  epochs: 3
+  optimizer: adamw
+  lr: 2.0e-4
+  weight_decay: 1.0e-4
+  betas: [0.9, 0.95]
+  eps: 1.0e-8
+  grad_clip_norm: 1.0
+  scheduler: cosine
+  warmup_ratio: 0.05
+  amp_dtype: fp32
+  seed: 13
+  validation_fraction: 0.05
+
+checkpoint:
+  output_dir: ../../../outputs/enzformer2_act/qwoff

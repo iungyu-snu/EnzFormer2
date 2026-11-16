@@ -1,0 +1,138 @@
+{
+  "model_name": "EnzFormer2-Temp",
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "aggregation": "mean_decoded_ddg",
+  "source_release": "enzformer2_20261102",
+  "files": [
+    {
+      "path": "ensemble.json",
+      "archive": "01_data_code_results.zip",
+      "archive_member": "computational/EnzFormer2_Temp/checkpoints/enzformer2_temp/ensemble.json",
+      "sha256": "9dc109618db550dc048ff457eef18ea3f1df4705a7a15ee66d6e972831b544b7"
+    },
+    {
+      "path": "seed42/best_adapter.pt",
+      "archive": "03_temp_and_case_checkpoints.zip",
+      "archive_member": "computational/EnzFormer2_Temp/checkpoints/enzformer2_temp/seed42/best_adapter.pt",
+      "sha256": "1a189572bac3b5c540f4b1a59ec7648a5f6584eced87532cc195e033bb8d8a6c"
+    },
+    {
+      "path": "seed42/best_head.pt",
+      "archive": "03_temp_and_case_checkpoints.zip",
+      "archive_member": "computational/EnzFormer2_Temp/checkpoints/enzformer2_temp/seed42/best_head.pt",
+      "sha256": "f760c12ffdd37162611dd1b96a407b7ef74e387113221d338b1684714fb2303f"
+    },
+    {
+      "path": "seed42/best_regressor.pt",
+      "archive": "03_temp_and_case_checkpoints.zip",
+      "archive_member": "computational/EnzFormer2_Temp/checkpoints/enzformer2_temp/seed42/best_regressor.pt",
+      "sha256": "37b7c3f7fb5b72c28ef615d21563fb235dd4b9b44d9be5d374459ff28da9aa5f"
+    },
+    {
+      "path": "seed42/masked_logodds.json",
+      "archive": "01_data_code_results.zip",
+      "archive_member": "computational/EnzFormer2_Temp/checkpoints/enzformer2_temp/seed42/masked_logodds.json",
+      "sha256": "c404098d33c20ff3919d3cfa8ef31ccb69bb4c7fb31aa4f4d654eb17e2d19d36"
+    },
+    {
+      "path": "seed42/target_transform.json",
+      "archive": "01_data_code_results.zip",
+      "archive_member": "computational/EnzFormer2_Temp/checkpoints/enzformer2_temp/seed42/target_transform.json",
+      "sha256": "7d7a9bbfe87e2bcd19f22b8f22f4dd4d5eb66ff148e8cd3e7b396a2660752b98"
+    },
+    {
+      "path": "seed42/train_config.yaml",
+      "archive": "01_data_code_results.zip",
+      "archive_member": "computational/EnzFormer2_Temp/checkpoints/enzformer2_temp/seed42/train_config.yaml",
+      "sha256": "82dc666c9800127507d6a62976d496e14e8c00dabdb540b6d5bec7fb0cbae3bd"
+    },
+    {
+      "path": "seed43/best_adapter.pt",
+      "archive": "03_temp_and_case_checkpoints.zip",
+      "archive_member": "computational/EnzFormer2_Temp/checkpoints/enzformer2_temp/seed43/best_adapter.pt",
+      "sha256": "b7d7209e4c0bb39c83e69c873e27849564259dab6a40627dbb2dcecfd1adc86e"
+    },
+    {
+      "path": "seed43/best_head.pt",
+      "archive": "03_temp_and_case_checkpoints.zip",
+      "archive_member": "computational/EnzFormer2_Temp/checkpoints/enzformer2_temp/seed43/best_head.pt",
+      "sha256": "b243cba85c3749d0c32861fd22f0eaed3240f328606b791635ba72aca2cb202d"
+    },
+    {
+      "path": "seed43/best_regressor.pt",
+      "archive": "03_temp_and_case_checkpoints.zip",
+      "archive_member": "computational/EnzFormer2_Temp/checkpoints/enzformer2_temp/seed43/best_regressor.pt",
+      "sha256": "d1a736409b1752a4c2ef3aa8345b94abf2d05e1f9f7462eb25079b3e5fc397af"
+    },
+    {
+      "path": "seed43/masked_logodds.json",
+      "archive": "01_data_code_results.zip",
+      "archive_member": "computational/EnzFormer2_Temp/checkpoints/enzformer2_temp/seed43/masked_logodds.json",
+      "sha256": "c404098d33c20ff3919d3cfa8ef31ccb69bb4c7fb31aa4f4d654eb17e2d19d36"
+    },
+    {
+      "path": "seed43/target_transform.json",
+      "archive": "01_data_code_results.zip",
+      "archive_member": "computational/EnzFormer2_Temp/checkpoints/enzformer2_temp/seed43/target_transform.json",
+      "sha256": "7d7a9bbfe87e2bcd19f22b8f22f4dd4d5eb66ff148e8cd3e7b396a2660752b98"
+    },
+    {
+      "path": "seed43/train_config.yaml",
+      "archive": "01_data_code_results.zip",
+      "archive_member": "computational/EnzFormer2_Temp/checkpoints/enzformer2_temp/seed43/train_config.yaml",
+      "sha256": "f633b479abb12f038e6199c622f5bc0bc52b8c37e6b2ffb14616d4f487526e3e"
+    },
+    {
+      "path": "seed44/best_adapter.pt",
+      "archive": "03_temp_and_case_checkpoints.zip",
+      "archive_member": "computational/EnzFormer2_Temp/checkpoints/enzformer2_temp/seed44/best_adapter.pt",
+      "sha256": "81199e1982aa9ec21e257ec94e2a6d00b565c35ea718586dd15a6a1972e242a7"
+    },
+    {
+      "path": "seed44/best_head.pt",
+      "archive": "03_temp_and_case_checkpoints.zip",
+      "archive_member": "computational/EnzFormer2_Temp/checkpoints/enzformer2_temp/seed44/best_head.pt",
+      "sha256": "94749b1bc2758a53a2f37541d28afdff9cf2198ce3cdb7d9d49e1ad52a520867"
+    },
+    {
+      "path": "seed44/best_regressor.pt",
+      "archive": "03_temp_and_case_checkpoints.zip",
+      "archive_member": "computational/EnzFormer2_Temp/checkpoints/enzformer2_temp/seed44/best_regressor.pt",
+      "sha256": "53ce7e2d856ae9abda0d3a1e87acb85e0fd1e5191775c59270d2c140bd3f764e"
+    },
+    {
+      "path": "seed44/masked_logodds.json",
+      "archive": "01_data_code_results.zip",
+      "archive_member": "computational/EnzFormer2_Temp/checkpoints/enzformer2_temp/seed44/masked_logodds.json",
+      "sha256": "c404098d33c20ff3919d3cfa8ef31ccb69bb4c7fb31aa4f4d654eb17e2d19d36"
+    },
+    {
+      "path": "seed44/target_transform.json",
+      "archive": "01_data_code_results.zip",
+      "archive_member": "computational/EnzFormer2_Temp/checkpoints/enzformer2_temp/seed44/target_transform.json",
+      "sha256": "7d7a9bbfe87e2bcd19f22b8f22f4dd4d5eb66ff148e8cd3e7b396a2660752b98"
+    },
+    {
+      "path": "seed44/train_config.yaml",
+      "archive": "01_data_code_results.zip",
+      "archive_member": "computational/EnzFormer2_Temp/checkpoints/enzformer2_temp/seed44/train_config.yaml",
+      "sha256": "e69c1690e77c0e2b3152f449c5f0e58eb74811526badcdc947938ab239b53c00"
+    },
+    {
+      "path": "threshold.json",
+      "archive": "01_data_code_results.zip",
+      "archive_member": "computational/EnzFormer2_Temp/evaluation/ensemble/threshold.json",
+      "sha256": "9eabc173d364008d2a5981cb9770393f3e4a22699c58d9b49a36b786ca7980f0"
+    }
+  ],
+  "archived_training_provenance": {
+    "archive": "01_data_code_results.zip",
+    "member": "computational/EnzFormer2_Temp/checkpoints/enzformer2_temp/provenance.json",
+    "sha256": "001752049bcc5f6fa312e0e9eede0683d85e3306dfd58bd42f17af6ca82f5d45"
+  },
+  "experimental_selection_model": "EnzFormer2-Temp ensemble (seeds 42, 43 and 44)"
+}

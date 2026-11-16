@@ -1,0 +1,55 @@
+experiment:
+  name: enzformer2_temp_seed42
+  seed: 42
+  output_dir: artifacts/enzformer2_temp/seed42
+data:
+  train_path: data/processed/megascale_thermompnn_esmc_logodds/train.parquet
+  validation_path: data/processed/megascale_thermompnn_esmc_logodds/validation.parquet
+  include_neutral: false
+  max_train_examples: null
+  max_validation_examples: null
+  max_sequence_length: 2048
+model:
+  name: esmc_600m
+  device: cuda
+  precision: bf16
+  cuda_memory_limit_gb: 80
+lora:
+  r: 16
+  alpha: 64
+  dropout: 0.05
+  target_patterns:
+  - attn.layernorm_qkv.1
+  - attn.out_proj
+  fail_if_no_match: true
+regressor:
+  kind: siamese_delta
+  head_dropout: 0.1
+  use_context: true
+  context_window_k: 2
+  head_hidden_dims:
+  - 256
+  - 64
+  masked_logodds:
+    enabled: true
+    source: base_esmc_frozen
+    mode: wt_context
+    transform: train_zscore_clip5
+    fusion: residual_prior
+    feature_dropout: 0.05
+    residual_gamma_init: 0.2
+training:
+  epochs: 2
+  batch_size: 48
+  gradient_accumulation_steps: 4
+  learning_rate: 0.0003
+  weight_decay: 0.05
+  max_grad_norm: 1.0
+  loss: smooth_l1
+  smooth_l1_beta: 2.0
+  target_transform: standardize_train
+  log_every: 20
+  eval_every: 0
+  save_every: 1000
+ablation:
+  freeze_prior_gamma: false

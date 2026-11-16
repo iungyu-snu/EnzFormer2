@@ -1,0 +1,129 @@
+# External single-point ddG benchmark manifest.
+#
+# Fill raw_path, columns, sequence_kind, position convention, and
+# Pin ddg_multiplier_to_project from each source's documented convention.
+# External data is test-only: never use these rows for training, threshold
+# calibration, hyperparameter search, or sign-convention inference.
+
+output:
+  processed_dir: "data/processed/external_benchmarks"
+  summary_filename: "summary.json"
+  schema_used_filename: "schema_used.yaml"
+  errors_filename: "errors.csv"
+
+labels:
+  stabilizing_threshold: -0.5
+  destabilizing_threshold: 0.5
+
+project_ddg_convention: "ddg > 0 is destabilizing; ddg < 0 is stabilizing"
+
+leakage:
+  # Identical substitutions in exact/contained WT sequences; shift coordinates
+  # at every exact substring occurrence. Count each external row only once.
+  policy: "fail"
+  reference_parquets:
+    - "data/processed/megascale_thermompnn/train.parquet"
+    - "data/processed/megascale_thermompnn/validation.parquet"
+
+benchmarks:
+  fireprot_hf:
+    enabled: false
+    task: "single_point_ddg"
+    source_dataset: "fireprot_hf"
+    raw_path: null
+    pdb_dir: null
+    sequence_kind: "wt_sequence"
+    position_convention: "mutation_1idx"
+    position_offset: 0
+    ddg_multiplier_to_project: null
+    columns:
+      protein_id: null
+      wt_sequence: null
+      mutation: null
+      ddg: null
+      pdb_id: null
+      chain_id: null
+
+  ssym_direct:
+    enabled: false
+    task: "single_point_ddg"
+    source_dataset: "ssym_direct"
+    raw_path: null
+    pdb_dir: null
+    sequence_kind: "wt_sequence"
+    position_convention: "mutation_1idx"
+    position_offset: 0
+    ddg_multiplier_to_project: null
+    columns: {protein_id: null, wt_sequence: null, mutation: null, ddg: null}
+
+  ssym_inverse:
+    enabled: false
+    task: "single_point_ddg"
+    source_dataset: "ssym_inverse"
+    raw_path: null
+    pdb_dir: null
+    sequence_kind: "wt_sequence"
+    position_convention: "mutation_1idx"
+    position_offset: 0
+    ddg_multiplier_to_project: null
+    columns: {protein_id: null, wt_sequence: null, mutation: null, ddg: null}
+
+  s669:
+    enabled: false
+    task: "single_point_ddg"
+    source_dataset: "s669"
+    raw_path: null
+    pdb_dir: null
+    sequence_kind: "wt_sequence"
+    position_convention: "mutation_1idx"
+    position_offset: 0
+    ddg_multiplier_to_project: null
+    columns: {protein_id: null, wt_sequence: null, mutation: null, ddg: null}
+
+  s461:
+    enabled: false
+    task: "single_point_ddg"
+    source_dataset: "s461"
+    raw_path: null
+    pdb_dir: null
+    sequence_kind: "wt_sequence"
+    position_convention: "mutation_1idx"
+    position_offset: 0
+    ddg_multiplier_to_project: null
+    columns: {protein_id: null, wt_sequence: null, mutation: null, ddg: null}
+
+  s783:
+    enabled: false
+    task: "single_point_ddg"
+    source_dataset: "s783"
+    raw_path: null
+    pdb_dir: null
+    sequence_kind: "wt_sequence"
+    position_convention: "mutation_1idx"
+    position_offset: 0
+    ddg_multiplier_to_project: null
+    columns: {protein_id: null, wt_sequence: null, mutation: null, ddg: null}
+
+  s2648:
+    enabled: false
+    task: "single_point_ddg"
+    source_dataset: "s2648"
+    raw_path: null
+    pdb_dir: null
+    sequence_kind: "wt_sequence"
+    position_convention: "mutation_1idx"
+    position_offset: 0
+    ddg_multiplier_to_project: null
+    columns: {protein_id: null, wt_sequence: null, mutation: null, ddg: null}
+
+  s8754:
+    enabled: false
+    task: "single_point_ddg"
+    source_dataset: "s8754"
+    raw_path: null
+    pdb_dir: null
+    sequence_kind: "wt_sequence"
+    position_convention: "mutation_1idx"
+    position_offset: 0
+    ddg_multiplier_to_project: null
+    columns: {protein_id: null, wt_sequence: null, mutation: null, ddg: null}

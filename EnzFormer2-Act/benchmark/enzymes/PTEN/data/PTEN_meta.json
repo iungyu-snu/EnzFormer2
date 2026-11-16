@@ -1,0 +1,81 @@
+{
+  "dataset": "PTEN",
+  "primary_truth_csv": "benchmark/enzymes/PTEN/data/PTEN_activity_high_conf.csv",
+  "auxiliary_truth_csvs": [],
+  "wt": {
+    "source": "benchmark/enzymes/PTEN/raw_sources/wt/uniprot_P60484.fasta",
+    "seq_id": "PTEN",
+    "length": 403,
+    "sha256": "9cdcf2cc4e761c77aaa7520e3f230e6607885b20e226dc197c676ce78916845a",
+    "selection_reason": "UniProt P60484 (cross-checked vs MaveDB construct DNA)"
+  },
+  "source_files": [
+    {
+      "path": "benchmark/enzymes/PTEN/raw_sources/wt/uniprot_P60484.fasta",
+      "sha256": "9cdcf2cc4e761c77aaa7520e3f230e6607885b20e226dc197c676ce78916845a"
+    },
+    {
+      "path": "benchmark/enzymes/PTEN/raw_sources/raw/mavedb_00000054-a-1_scores.csv",
+      "sha256": "16764c9b4afed9f7507bb8e615fdcd703329f3145108a8c28bdf0b1c60f076e7"
+    },
+    {
+      "path": "benchmark/enzymes/PTEN/raw_sources/wt/assay_target_sequence_from_mavedb.dna.fasta",
+      "sha256": "bfdc6248437ecf828f4834451d9ce6e952fc796ffa8d0219a1483fb4400c4bf2"
+    }
+  ],
+  "score": {
+    "fitness_column": "score",
+    "higher_is_better": true,
+    "positive_threshold": 0.0,
+    "positive_threshold_review_required": true
+  },
+  "filters": {
+    "primary_high_conf": {
+      "raw_rows": 7462,
+      "truth_rows": 6564,
+      "dropped_synonymous": 0,
+      "dropped_stop": 340,
+      "dropped_noncanonical": 0,
+      "dropped_nan_fitness": 0,
+      "dropped_wt_mismatch": 0,
+      "dropped_hgvs_unparsed": 558,
+      "dropped_position_oob": 0,
+      "collapsed_duplicate_rows": 0
+    },
+    "extra_unparsed_hgvs": 218
+  },
+  "mavedb_dna_cross_check": {
+    "mavedb_dna_path": "benchmark/enzymes/PTEN/raw_sources/wt/assay_target_sequence_from_mavedb.dna.fasta",
+    "translation_attempts": [
+      {
+        "frame": 0,
+        "length": 403,
+        "hgvs_checked": 8060,
+        "hgvs_agree": 8060,
+        "agree_rate": 1.0
+      },
+      {
+        "frame": 2,
+        "length": 8,
+        "hgvs_checked": 160,
+        "hgvs_agree": 0,
+        "agree_rate": 0.0
+      },
+      {
+        "frame": 1,
+        "length": 0,
+        "hgvs_checked": 0,
+        "hgvs_agree": 0,
+        "agree_rate": 0.0
+      }
+    ],
+    "chosen_frame_for_check": 0,
+    "translated_length": 403,
+    "wt_fasta_length": 403,
+    "mavedb_matches_wt": true
+  },
+  "notes": [
+    "PTEN benchmark is the High_conf-filtered activity subset.",
+    "WT = UniProt P60484; MaveDB construct DNA is cross-checked (see mavedb_dna_cross_check in metadata)."
+  ]
+}

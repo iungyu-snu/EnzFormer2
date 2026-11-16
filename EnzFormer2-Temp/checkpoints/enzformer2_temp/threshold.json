@@ -1,0 +1,50 @@
+{
+  "threshold_score_neg_ddg_hat": -0.18037773685253233,
+  "metric_name": "mcc",
+  "metric_value": 0.6950819221378162,
+  "fit_split": "validation",
+  "checkpoint": {
+    "model_name": "EnzFormer2-Temp",
+    "checkpoint_dir": "source-51abce15d2b07652",
+    "inference_mode": "ensemble_mean",
+    "aggregation": "mean_decoded_ddg",
+    "members": [
+      {
+        "path": "source-da7f8e5663799da4",
+        "seed": 42,
+        "sha256": {
+          "train_config.yaml": "82dc666c9800127507d6a62976d496e14e8c00dabdb540b6d5bec7fb0cbae3bd",
+          "target_transform.json": "7d7a9bbfe87e2bcd19f22b8f22f4dd4d5eb66ff148e8cd3e7b396a2660752b98",
+          "best_adapter.pt": "1a189572bac3b5c540f4b1a59ec7648a5f6584eced87532cc195e033bb8d8a6c",
+          "best_head.pt": "f760c12ffdd37162611dd1b96a407b7ef74e387113221d338b1684714fb2303f",
+          "best_regressor.pt": "37b7c3f7fb5b72c28ef615d21563fb235dd4b9b44d9be5d374459ff28da9aa5f",
+          "masked_logodds.json": "c404098d33c20ff3919d3cfa8ef31ccb69bb4c7fb31aa4f4d654eb17e2d19d36"
+        }
+      },
+      {
+        "path": "source-4c4884ad5796d564",
+        "seed": 43,
+        "sha256": {
+          "train_config.yaml": "f633b479abb12f038e6199c622f5bc0bc52b8c37e6b2ffb14616d4f487526e3e",
+          "target_transform.json": "7d7a9bbfe87e2bcd19f22b8f22f4dd4d5eb66ff148e8cd3e7b396a2660752b98",
+          "best_adapter.pt": "b7d7209e4c0bb39c83e69c873e27849564259dab6a40627dbb2dcecfd1adc86e",
+          "best_head.pt": "b243cba85c3749d0c32861fd22f0eaed3240f328606b791635ba72aca2cb202d",
+          "best_regressor.pt": "d1a736409b1752a4c2ef3aa8345b94abf2d05e1f9f7462eb25079b3e5fc397af",
+          "masked_logodds.json": "c404098d33c20ff3919d3cfa8ef31ccb69bb4c7fb31aa4f4d654eb17e2d19d36"
+        }
+      },
+      {
+        "path": "source-bb788ccbb4e7aec5",
+        "seed": 44,
+        "sha256": {
+          "train_config.yaml": "e69c1690e77c0e2b3152f449c5f0e58eb74811526badcdc947938ab239b53c00",
+          "target_transform.json": "7d7a9bbfe87e2bcd19f22b8f22f4dd4d5eb66ff148e8cd3e7b396a2660752b98",
+          "best_adapter.pt": "81199e1982aa9ec21e257ec94e2a6d00b565c35ea718586dd15a6a1972e242a7",
+          "best_head.pt": "94749b1bc2758a53a2f37541d28afdff9cf2198ce3cdb7d9d49e1ad52a520867",
+          "best_regressor.pt": "53ce7e2d856ae9abda0d3a1e87acb85e0fd1e5191775c59270d2c140bd3f764e",
+          "masked_logodds.json": "c404098d33c20ff3919d3cfa8ef31ccb69bb4c7fb31aa4f4d654eb17e2d19d36"
+        }
+      }
+    ]
+  }
+}

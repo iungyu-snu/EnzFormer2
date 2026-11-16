@@ -1,0 +1,67 @@
+Given:
+- enzyme_type: __ENZYME_TYPE__
+- query_name: __QUERY_NAME__
+- query_sequence_length: __QUERY_SEQUENCE_LENGTH__
+- query_sequence_preview: __QUERY_SEQUENCE_PREVIEW__
+- query_sequence:
+__QUERY_SEQUENCE__
+- query_enzyme_details:
+__QUERY_DETAILS__
+- grounding_from_uniprot_reviewed: __GROUNDING_BLOCK__
+
+Infer the most likely Pfam and InterPro entries, retrieval hints, and query-specific
+minimal conserved active-site motif regexes.
+
+Return JSON with EXACT keys:
+{
+  "enzyme_type_normalized": "...",
+  "pfam_id": "...",
+  "interpro_id": "...",
+  "motif_regex": null or "...",
+  "minimal_conserved_motif_regexes": ["..."],
+  "minimal_conserved_motif_rationale": "...",
+  "minimal_conserved_motif_source": "...",
+  "extra_uniprot_query": null or "...",
+  "positive_tokens": ["..."],
+  "negative_tokens": ["..."],
+  "ec_numbers": ["..."],
+  "go_terms": ["..."],
+  "active_site_rules": [
+    {
+      "id": "...",
+      "regex": null or "...",
+      "position_1based": null or 1,
+      "allowed_aas": null or ["S","D","E"],
+      "tolerance": 0,
+      "required": true
+    }
+  ],
+  "active_site_policy": "all_required|min_required",
+  "active_site_min_hits": null or 1,
+  "confidence": 0.0,
+  "candidates": [
+    {"pfam_id":"...","interpro_id":"...","reason":"...","confidence":0.0}
+  ]
+}
+
+Rules:
+- confidence is [0,1]
+- candidates sorted by confidence desc
+- if unsure, still provide best candidates
+- always include ec_numbers, candidates, active_site_rules keys (use [] if unknown)
+- always include active_site_policy ("all_required" or "min_required")
+- use active_site_min_hits only when policy is "min_required"
+- UniProt REST organism filters must use organism_name:"..." or organism_id:..., never organism:"...".
+- if grounding_from_uniprot_reviewed has candidates, prefer those IDs and do not invent unrelated IDs
+- if grounding_from_uniprot_reviewed sample entries show likely fusion or multifunctional contaminants, include concise partner/contaminant aliases in negative_tokens
+- Derive minimal_conserved_motif_regexes from the query enzyme details and the full query sequence.
+- Do not rely on a family-level active-site motif unless it is explicitly validated against this exact query enzyme sequence.
+- Every minimal_conserved_motif_regexes item must match the full query_sequence.
+- If multiple minimal motif regexes are returned, all are required; encode alternatives inside one regex.
+- motif_regex and active_site_rules must be consistent with minimal_conserved_motif_regexes for backward compatibility.
+- For active_site_rules, include only evaluate-able rules (regex and/or position_1based).
+- Prefer motif_regex for short conserved catalytic signatures when that is more robust than absolute coordinates.
+- Never invent absolute residue numbering from a canonical/reference protein when the query evidence is indirect or uncertain.
+- Position-specific rules will be post-validated against the full query sequence; if you are not confident they are query-specific, omit them.
+- If you are not confident in a query-specific minimal motif, return minimal_conserved_motif_regexes=[].
+- If you are not confident in any motif or query-validated active-site rule, return motif_regex=null and active_site_rules=[].

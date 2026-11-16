@@ -1,0 +1,71 @@
+{
+  "dataset": "VIM2",
+  "primary_truth_csv": "benchmark/enzymes/VIM2/data/VIM2.csv",
+  "auxiliary_truth_csvs": [],
+  "wt": {
+    "source": "benchmark/enzymes/VIM2/raw_sources/wt/assay_target_sequence_from_mavedb.dna.fasta",
+    "seq_id": "VIM2",
+    "length": 267,
+    "sha256": "ce211c74f0ea977f5f8c6547d71173062b5a2c2e817e1cdce0260265d8c8db12",
+    "selection_reason": "Frame-search translation of MaveDB construct DNA chosen by agreement with hgvs_pro WT residues.",
+    "translation_attempts": [
+      {
+        "frame": 0,
+        "length": 267,
+        "hgvs_checked": 5549,
+        "hgvs_agree": 5549,
+        "agree_rate": 1.0
+      },
+      {
+        "frame": 2,
+        "length": 6,
+        "hgvs_checked": 124,
+        "hgvs_agree": 0,
+        "agree_rate": 0.0
+      },
+      {
+        "frame": 1,
+        "length": 5,
+        "hgvs_checked": 103,
+        "hgvs_agree": 0,
+        "agree_rate": 0.0
+      }
+    ],
+    "chosen_frame": 0
+  },
+  "source_files": [
+    {
+      "path": "benchmark/enzymes/VIM2/raw_sources/raw/mavedb_00000073-b-1_scores.csv",
+      "sha256": "04beee18fec10fc3e0e41862b6079a0d47c6efc3d7aabd2283aad7e809922621"
+    },
+    {
+      "path": "benchmark/enzymes/VIM2/raw_sources/wt/assay_target_sequence_from_mavedb.dna.fasta",
+      "sha256": "ce211c74f0ea977f5f8c6547d71173062b5a2c2e817e1cdce0260265d8c8db12"
+    }
+  ],
+  "score": {
+    "fitness_column": "score",
+    "higher_is_better": true,
+    "positive_threshold": 0.0,
+    "positive_threshold_review_required": true
+  },
+  "filters": {
+    "primary": {
+      "raw_rows": 5549,
+      "truth_rows": 5028,
+      "dropped_synonymous": 247,
+      "dropped_stop": 267,
+      "dropped_noncanonical": 0,
+      "dropped_nan_fitness": 7,
+      "dropped_wt_mismatch": 0,
+      "dropped_hgvs_unparsed": 0,
+      "dropped_position_oob": 0,
+      "collapsed_duplicate_rows": 0
+    },
+    "extra_unparsed_hgvs": 0
+  },
+  "notes": [
+    "VIM-2 WT is the MaveDB construct translation -- it has an extra Gly inserted after the initial Met relative to UniProt A4GRB6. Numbering follows the MaveDB construct.",
+    "Translation frame chosen for best HGVS WT agreement: 0"
+  ]
+}

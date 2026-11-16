@@ -1,0 +1,42 @@
+# Generated Act benchmark input catalog.
+# Add prediction paths in a separate runnable benchmark manifest.
+
+queries:
+  NDM1:
+    seq_id: NDM1
+    wt_fasta: benchmark/enzymes/NDM1/data/NDM1.fasta
+    truth_csv: benchmark/enzymes/NDM1/data/NDM1_CTX32.csv
+    positive_threshold: 0.0
+    wt_mismatch_policy: drop_and_report
+  VIM2:
+    seq_id: VIM2
+    wt_fasta: benchmark/enzymes/VIM2/data/VIM2.fasta
+    truth_csv: benchmark/enzymes/VIM2/data/VIM2.csv
+    positive_threshold: 0.0
+    wt_mismatch_policy: drop_and_report
+  PjDHFR:
+    seq_id: PjDHFR
+    wt_fasta: benchmark/enzymes/PjDHFR/data/PjDHFR.fasta
+    truth_csv: benchmark/enzymes/PjDHFR/data/PjDHFR_MTX_IC75.csv
+    positive_threshold: 0.0
+    wt_mismatch_policy: drop_and_report
+  RNaseIII:
+    seq_id: RNaseIII
+    wt_fasta: benchmark/enzymes/RNaseIII/data/RNaseIII.fasta
+    truth_csv: benchmark/enzymes/RNaseIII/data/RNaseIII_fitness.csv
+    positive_threshold: 0.0
+    wt_mismatch_policy: drop_and_report
+  CYP2C9:
+    seq_id: CYP2C9
+    wt_fasta: benchmark/enzymes/CYP2C9/data/CYP2C9.fasta
+    truth_csv: benchmark/enzymes/CYP2C9/data/CYP2C9_activity.csv
+    positive_threshold: 0.0
+    wt_mismatch_policy: drop_and_report
+  PTEN:
+    seq_id: PTEN
+    wt_fasta: benchmark/enzymes/PTEN/data/PTEN.fasta
+    truth_csv: benchmark/enzymes/PTEN/data/PTEN_activity_high_conf.csv
+    positive_threshold: 0.0
+    wt_mismatch_policy: drop_and_report
+
+runs: []
