@@ -527,7 +527,7 @@ def main(argv: Sequence[str] | None = None) -> None:
                 llm_dir=llm_dir,
                 query_name=query_name,
                 query_details_text=query_details_text,
-                max_tokens=8192,
+                max_tokens=16384,
                 max_attempts=1,
             )
 
